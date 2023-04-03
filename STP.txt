@@ -1,0 +1,38 @@
+問１：ルートブリッジに該当するのは、switch3
+ブリッジプライオリティが低い値だから。
+
+問２：ルートブリッジ（switch3）を起点とするので、
+Switch3のE0/1、E0/2はDPです。
+
+Switch3 E0/2 〜 Switch4 E0/2 間が１Gbps　　４
+Switch4 E0/1 〜 Switch2 F0/2 間が100Mbps　１９
+Switch2 F0/1 〜 Switch1 E0/1 間が100Mbps　１９
+Switch1 F0/2 〜 Switch3 E0/1 間が100Mbps　１９
+
+よって、switch4のE0/2はRPになります。
+
+Switch1はルートブリッジからのコストがそれぞれ
+F0/1が42、F0/2が19。
+
+Switch2はルートブリッジからのコストがそれぞれ
+F0/1が38、F0/2が23。
+
+Switch4はルートブリッジからのコストがそれぞれ
+E0/1が57、E0/2が4。
+
+よって比較すると、
+switch1のF0/2はRP、
+switch1のF0/1はDP。
+
+Switch4のE0/1はDP。
+
+Switch2のF0/2はRP。
+
+残ったポートはSwitch2のF0/1がBPとなるので
+以上のことから、
+
+switch1のF0/1はDP switch1のF0/2はRP
+switch2のF0/1はBP switch2のF0/2はRP
+switch3のE0/1はDP switch3のE0/2はDP
+switch4のE0/1はDP switch4のE0/2はRP
+
